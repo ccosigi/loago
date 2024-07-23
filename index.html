@@ -3,323 +3,252 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>오레하 계산기</title>
-    <style>
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-bottom: 20px;
-        }
-        th, td {
-            border: 1px solid #ddd;
-            padding: 8px;
-            text-align: center;
-        }
-        th {
-            background-color: #f2f2f2;
-        }
-    </style>
+    <title>Profit Calculator</title>
 </head>
 <body>
-    <h1>오레하 계산기</h1>
-    
-    <h2>최상급 오레하</h2>
+    <h2>상급 오레하</h2>
     <table>
         <thead>
-            <tr>
-                <th colspan="2">거래소 가격</th>
-                <th colspan="1"><input type="number" id="exchangePriceTop" value="63"></th>
-                 
-            </tr>
-            <tr>
-                <th colspan="2">15개 제작비용</th>
-                <th colspan="1"><input type="number" id="productionCostTop" value="273"></th>
-            	<th colspan="3">재료는 모두 100개당 가격입니다.</th>
-            </tr>
             <tr>
                 <th>재료</th>
                 <th>희귀</th>
                 <th>고급</th>
                 <th>일반</th>
                 <th>개당 가격</th>
-                <th>15개 판매시 순익</th>
+                <th>15개 판매 수익</th>
             </tr>
         </thead>
         <tbody>
             <tr>
                 <td>수렵</td>
-                <td><input type="number" id="rareHuntTop" value="0"></td>
-                <td><input type="number" id="highHuntTop" value="0"></td>
-                <td><input type="number" id="commonHuntTop" value="0"></td>
+                <td><input type="number" id="rareHuntTop" value="0" oninput="saveValue('rareHuntTop'); calculateProfitTop();"></td>
+                <td><input type="number" id="highHuntTop" value="0" oninput="saveValue('highHuntTop'); calculateProfitTop();"></td>
+                <td><input type="number" id="commonHuntTop" value="0" oninput="saveValue('commonHuntTop'); calculateProfitTop();"></td>
                 <td id="materialCostHuntTop">0</td>
                 <td id="netProfitHuntTop">0</td>
             </tr>
             <tr>
                 <td>낚시</td>
-                <td><input type="number" id="rareFishTop" value="0"></td>
-                <td><input type="number" id="highFishTop" value="0"></td>
-                <td><input type="number" id="commonFishTop" value="0"></td>
+                <td><input type="number" id="rareFishTop" value="0" oninput="saveValue('rareFishTop'); calculateProfitTop();"></td>
+                <td><input type="number" id="highFishTop" value="0" oninput="saveValue('highFishTop'); calculateProfitTop();"></td>
+                <td><input type="number" id="commonFishTop" value="0" oninput="saveValue('commonFishTop'); calculateProfitTop();"></td>
                 <td id="materialCostFishTop">0</td>
                 <td id="netProfitFishTop">0</td>
             </tr>
             <tr>
                 <td>고고학</td>
-                <td><input type="number" id="rareArchaeologyTop" value="0"></td>
-                <td><input type="number" id="highArchaeologyTop" value="0"></td>
-                <td><input type="number" id="commonArchaeologyTop" value="0"></td>
+                <td><input type="number" id="rareArchaeologyTop" value="0" oninput="saveValue('rareArchaeologyTop'); calculateProfitTop();"></td>
+                <td><input type="number" id="highArchaeologyTop" value="0" oninput="saveValue('highArchaeologyTop'); calculateProfitTop();"></td>
+                <td><input type="number" id="commonArchaeologyTop" value="0" oninput="saveValue('commonArchaeologyTop'); calculateProfitTop();"></td>
                 <td id="materialCostArchaeologyTop">0</td>
                 <td id="netProfitArchaeologyTop">0</td>
             </tr>
         </tbody>
     </table>
-    <button onclick="calculateProfitTop()">계산하기</button>
+    <div>
+        <label>거래소 가격 <input type="number" id="exchangePriceTop" value="0" oninput="saveValue('exchangePriceTop'); calculateProfitTop();"></label>
+        <label>제작비용: <input type="number" id="productionCostTop" value="0" oninput="saveValue('productionCostTop'); calculateProfitTop();"></label>
+    </div>
 
     <h2>아비도스 융화재료</h2>
     <table>
         <thead>
             <tr>
-                <th colspan="2">거래소 가격</th>
-                <th colspan="1"><input type="number" id="exchangePriceAbydos" value="70"></th>
-                 
-            </tr>
-            <tr>
-                <th colspan="2">10개 제작비용</th>
-                <th colspan="1"><input type="number" id="productionCostAbydos" value="364"></th>
-            	<th colspan="3">재료는 모두 100개당 가격입니다.</th>
-            </tr>
-            <tr>
                 <th>재료</th>
                 <th>희귀</th>
                 <th>고급</th>
                 <th>일반</th>
                 <th>개당 가격</th>
-                <th>10개 판매시 순익</th>
+                <th>10개 판매 수익</th>
             </tr>
         </thead>
         <tbody>
             <tr>
                 <td>수렵</td>
-                <td><input type="number" id="rareHuntAbydos" value="0"></td>
-                <td><input type="number" id="highHuntAbydos" value="0"></td>
-                <td><input type="number" id="commonHuntAbydos" value="0"></td>
+                <td><input type="number" id="rareHuntAbydos" value="0" oninput="saveValue('rareHuntAbydos'); calculateProfitAbydos();"></td>
+                <td><input type="number" id="highHuntAbydos" value="0" oninput="saveValue('highHuntAbydos'); calculateProfitAbydos();"></td>
+                <td><input type="number" id="commonHuntAbydos" value="0" oninput="saveValue('commonHuntAbydos'); calculateProfitAbydos();"></td>
                 <td id="materialCostHuntAbydos">0</td>
                 <td id="netProfitHuntAbydos">0</td>
             </tr>
             <tr>
                 <td>낚시</td>
-                <td><input type="number" id="rareFishAbydos" value="0"></td>
-                <td><input type="number" id="highFishAbydos" value="0"></td>
-                <td><input type="number" id="commonFishAbydos" value="0"></td>
+                <td><input type="number" id="rareFishAbydos" value="0" oninput="saveValue('rareFishAbydos'); calculateProfitAbydos();"></td>
+                <td><input type="number" id="highFishAbydos" value="0" oninput="saveValue('highFishAbydos'); calculateProfitAbydos();"></td>
+                <td><input type="number" id="commonFishAbydos" value="0" oninput="saveValue('commonFishAbydos'); calculateProfitAbydos();"></td>
                 <td id="materialCostFishAbydos">0</td>
                 <td id="netProfitFishAbydos">0</td>
             </tr>
             <tr>
                 <td>고고학</td>
-                <td><input type="number" id="rareArchaeologyAbydos" value="0"></td>
-                <td><input type="number" id="highArchaeologyAbydos" value="0"></td>
-                <td><input type="number" id="commonArchaeologyAbydos" value="0"></td>
+                <td><input type="number" id="rareArchaeologyAbydos" value="0" oninput="saveValue('rareArchaeologyAbydos'); calculateProfitAbydos();"></td>
+                <td><input type="number" id="highArchaeologyAbydos" value="0" oninput="saveValue('highArchaeologyAbydos'); calculateProfitAbydos();"></td>
+                <td><input type="number" id="commonArchaeologyAbydos" value="0" oninput="saveValue('commonArchaeologyAbydos'); calculateProfitAbydos();"></td>
                 <td id="materialCostArchaeologyAbydos">0</td>
                 <td id="netProfitArchaeologyAbydos">0</td>
             </tr>
             <tr>
                 <td>채집</td>
-                <td><input type="number" id="rareGatheringAbydos" value="0"></td>
-                <td><input type="number" id="highGatheringAbydos" value="0"></td>
-                <td><input type="number" id="commonGatheringAbydos" value="0"></td>
+                <td><input type="number" id="rareGatheringAbydos" value="0" oninput="saveValue('rareGatheringAbydos'); calculateProfitAbydos();"></td>
+                <td><input type="number" id="highGatheringAbydos" value="0" oninput="saveValue('highGatheringAbydos'); calculateProfitAbydos();"></td>
+                <td><input type="number" id="commonGatheringAbydos" value="0" oninput="saveValue('commonGatheringAbydos'); calculateProfitAbydos();"></td>
                 <td id="materialCostGatheringAbydos">0</td>
                 <td id="netProfitGatheringAbydos">0</td>
             </tr>
             <tr>
                 <td>벌목</td>
-                <td><input type="number" id="rareLoggingAbydos" value="0"></td>
-                <td><input type="number" id="highLoggingAbydos" value="0"></td>
-                <td><input type="number" id="commonLoggingAbydos" value="0"></td>
+                <td><input type="number" id="rareLoggingAbydos" value="0" oninput="saveValue('rareLoggingAbydos'); calculateProfitAbydos();"></td>
+                <td><input type="number" id="highLoggingAbydos" value="0" oninput="saveValue('highLoggingAbydos'); calculateProfitAbydos();"></td>
+                <td><input type="number" id="commonLoggingAbydos" value="0" oninput="saveValue('commonLoggingAbydos'); calculateProfitAbydos();"></td>
                 <td id="materialCostLoggingAbydos">0</td>
                 <td id="netProfitLoggingAbydos">0</td>
             </tr>
             <tr>
                 <td>채광</td>
-                <td><input type="number" id="rareMiningAbydos" value="0"></td>
-                <td><input type="number" id="highMiningAbydos" value="0"></td>
-                <td><input type="number" id="commonMiningAbydos" value="0"></td>
+                <td><input type="number" id="rareMiningAbydos" value="0" oninput="saveValue('rareMiningAbydos'); calculateProfitAbydos();"></td>
+                <td><input type="number" id="highMiningAbydos" value="0" oninput="saveValue('highMiningAbydos'); calculateProfitAbydos();"></td>
+                <td><input type="number" id="commonMiningAbydos" value="0" oninput="saveValue('commonMiningAbydos'); calculateProfitAbydos();"></td>
                 <td id="materialCostMiningAbydos">0</td>
                 <td id="netProfitMiningAbydos">0</td>
             </tr>
         </tbody>
     </table>
-    <button onclick="calculateProfitAbydos()">계산하기</button>
-
-    <h2>상급 오레하</h2>
-    <table>
-        <thead>
-            <tr>
-                <th colspan="2">거래소 가격</th>
-                <th colspan="1"><input type="number" id="exchangePrice" value="0"></th>
-                 
-            </tr>
-            <tr>
-                <th colspan="2">20개 제작비용</th>
-                <th colspan="1"><input type="number" id="productionCost" value="0"></th>
-            	<th colspan="3">재료는 모두 100개당 가격입니다.</th>
-            </tr>
-            <tr>
-                <th>재료</th>
-                <th>희귀</th>
-                <th>고급</th>
-                <th>일반</th>
-                <th>개당 가격</th>
-                <th>20개 판매시 순익</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>수렵</td>
-                <td><input type="number" id="rareHunt" value="0"></td>
-                <td><input type="number" id="highHunt" value="0"></td>
-                <td><input type="number" id="commonHunt" value="0"></td>
-                <td id="materialCostHunt">0</td>
-                <td id="netProfitHunt">0</td>
-            </tr>
-            <tr>
-                <td>낚시</td>
-                <td><input type="number" id="rareFish" value="0"></td>
-                <td><input type="number" id="highFish" value="0"></td>
-                <td><input type="number" id="commonFish" value="0"></td>
-                <td id="materialCostFish">0</td>
-                <td id="netProfitFish">0</td>
-            </tr>
-            <tr>
-                <td>고고학</td>
-                <td><input type="number" id="rareArchaeology" value="0"></td>
-                <td><input type="number" id="highArchaeology" value="0"></td>
-                <td><input type="number" id="commonArchaeology" value="0"></td>
-                <td id="materialCostArchaeology">0</td>
-                <td id="netProfitArchaeology">0</td>
-            </tr>
-        </tbody>
-    </table>
-    <button onclick="calculateProfit()">계산하기</button>
+    <div>
+        <label>거래소 가격: <input type="number" id="exchangePriceAbydos" value="0" oninput="saveValue('exchangePriceAbydos'); calculateProfitAbydos();"></label>
+        <label>제작비용: <input type="number" id="productionCostAbydos" value="0" oninput="saveValue('productionCostAbydos'); calculateProfitAbydos();"></label>
+    </div>
 
     <script>
+        function saveValue(id) {
+            const value = document.getElementById(id).value;
+            localStorage.setItem(id, value);
+        }
+
+        function loadValue(id) {
+            const value = localStorage.getItem(id);
+            if (value !== null) {
+                document.getElementById(id).value = value;
+            }
+        }
 
         function calculateProfitTop() {
-            const exchangePriceTop = parseFloat(document.getElementById('exchangePriceTop').value);
-            const productionCostTop = parseFloat(document.getElementById('productionCostTop').value);
+            const exchangePriceTop = parseFloat(document.getElementById('exchangePriceTop').value) || 0;
+            const productionCostTop = parseFloat(document.getElementById('productionCostTop').value) || 0;
 
-            const rareHuntTop = parseFloat(document.getElementById('rareHuntTop').value) || 0;
-            const highHuntTop = parseFloat(document.getElementById('highHuntTop').value) || 0;
-            const commonHuntTop = parseFloat(document.getElementById('commonHuntTop').value) || 0;
-
-            const rareFishTop = parseFloat(document.getElementById('rareFishTop').value) || 0;
-            const highFishTop = parseFloat(document.getElementById('highFishTop').value) || 0;
-            const commonFishTop = parseFloat(document.getElementById('commonFishTop').value) || 0;
-
-            const rareArchaeologyTop = parseFloat(document.getElementById('rareArchaeologyTop').value) || 0;
-            const highArchaeologyTop = parseFloat(document.getElementById('highArchaeologyTop').value) || 0;
-            const commonArchaeologyTop = parseFloat(document.getElementById('commonArchaeologyTop').value) || 0;
-    
-
-            const materialCostHuntTop = (0.52 * rareHuntTop) + (0.52 * highHuntTop) + (1.42 * commonHuntTop);
-            const materialCostFishTop = (0.52 * rareFishTop) + (0.52 * highFishTop) + (1.42 * commonFishTop);
-            const materialCostArchaeologyTop = (0.52 * rareArchaeologyTop) + (0.51 * highArchaeologyTop) + (1.07 * commonArchaeologyTop);
-             
+            const materialCostHuntTop = parseFloat(document.getElementById('rareHuntTop').value) * 0.52 +
+                                        parseFloat(document.getElementById('highHuntTop').value) * 0.52 +
+                                        parseFloat(document.getElementById('commonHuntTop').value) * 1.42;
             document.getElementById('materialCostHuntTop').innerText = ((materialCostHuntTop + productionCostTop)/15).toFixed(2);
-            document.getElementById('netProfitHuntTop').innerText = ((exchangePriceTop * 15 * 0.95) - productionCostTop - materialCostHuntTop).toFixed(2);
 
+            const materialCostFishTop = parseFloat(document.getElementById('rareFishTop').value) * 0.52 +
+                                        parseFloat(document.getElementById('highFishTop').value) * 0.52 +
+                                        parseFloat(document.getElementById('commonFishTop').value) * 1.42;
             document.getElementById('materialCostFishTop').innerText = ((materialCostFishTop + productionCostTop)/15).toFixed(2);
-            document.getElementById('netProfitFishTop').innerText = ((exchangePriceTop * 15 * 0.95) - productionCostTop - materialCostFishTop).toFixed(2);
 
+            const materialCostArchaeologyTop = parseFloat(document.getElementById('rareArchaeologyTop').value) * 0.52 +
+                                                parseFloat(document.getElementById('highArchaeologyTop').value) * 0.51 +
+                                                parseFloat(document.getElementById('commonArchaeologyTop').value) * 1.07;
             document.getElementById('materialCostArchaeologyTop').innerText = ((materialCostArchaeologyTop + productionCostTop)/15).toFixed(2);
-            document.getElementById('netProfitArchaeologyTop').innerText = ((exchangePriceTop * 15 * 0.95) - productionCostTop - materialCostArchaeologyTop).toFixed(2);         
+
+            const netProfitHuntTop = (exchangePriceTop * 15 * 0.95) -(productionCostTop + materialCostHuntTop);
+            document.getElementById('netProfitHuntTop').innerText = netProfitHuntTop.toFixed(2);
+
+            const netProfitFishTop = (exchangePriceTop * 15 * 0.95) - (productionCostTop + materialCostFishTop);
+            document.getElementById('netProfitFishTop').innerText = netProfitFishTop.toFixed(2);
+
+            const netProfitArchaeologyTop = (exchangePriceTop * 15 * 0.95) - (productionCostTop + materialCostArchaeologyTop);
+            document.getElementById('netProfitArchaeologyTop').innerText = netProfitArchaeologyTop.toFixed(2);
         }
-        
+
         function calculateProfitAbydos() {
-            const exchangePriceAbydos = parseFloat(document.getElementById('exchangePriceAbydos').value);
-            const productionCostAbydos = parseFloat(document.getElementById('productionCostAbydos').value);
+            const exchangePriceAbydos = parseFloat(document.getElementById('exchangePriceAbydos').value) || 0;
+            const productionCostAbydos = parseFloat(document.getElementById('productionCostAbydos').value) || 0;
 
-            const rareHuntAbydos = parseFloat(document.getElementById('rareHuntAbydos').value) || 0;
-            const highHuntAbydos = parseFloat(document.getElementById('highHuntAbydos').value) || 0;
-            const commonHuntAbydos = parseFloat(document.getElementById('commonHuntAbydos').value) || 0;
-
-            const rareFishAbydos = parseFloat(document.getElementById('rareFishAbydos').value) || 0;
-            const highFishAbydos = parseFloat(document.getElementById('highFishAbydos').value) || 0;
-            const commonFishAbydos = parseFloat(document.getElementById('commonFishAbydos').value) || 0;
-
-            const rareArchaeologyAbydos = parseFloat(document.getElementById('rareArchaeologyAbydos').value) || 0;
-            const highArchaeologyAbydos = parseFloat(document.getElementById('highArchaeologyAbydos').value) || 0;
-            const commonArchaeologyAbydos = parseFloat(document.getElementById('commonArchaeologyAbydos').value) || 0;
-            
-            const rareGatheringAbydos = parseFloat(document.getElementById('rareGatheringAbydos').value) || 0;
-            const highGatheringAbydos = parseFloat(document.getElementById('highGatheringAbydos').value) || 0;
-            const commonGatheringAbydos = parseFloat(document.getElementById('commonGatheringAbydos').value) || 0;
-
-            const rareLoggingAbydos = parseFloat(document.getElementById('rareLoggingAbydos').value) || 0;
-            const highLoggingAbydos = parseFloat(document.getElementById('highLoggingAbydos').value) || 0;
-            const commonLoggingAbydos = parseFloat(document.getElementById('commonLoggingAbydos').value) || 0;
-
-            const rareMiningAbydos = parseFloat(document.getElementById('rareMiningAbydos').value) || 0;
-            const highMiningAbydos = parseFloat(document.getElementById('highMiningAbydos').value) || 0;
-            const commonMiningAbydos = parseFloat(document.getElementById('commonMiningAbydos').value) || 0;
-
-            const materialCostHuntAbydos = (0.33 * rareHuntAbydos) + (0.45 * highHuntAbydos) + (0.86 * commonHuntAbydos);
-            const materialCostFishAbydos = (.033 * rareFishAbydos) + (0.45 * highFishAbydos) + (0.86 * commonFishAbydos);
-            const materialCostArchaeologyAbydos = (0.33 * rareArchaeologyAbydos) + (0.45 * highArchaeologyAbydos) + (0.86 * commonArchaeologyAbydos);
-            const materialCostGatheringAbydos = (0.33 * rareGatheringAbydos) + (0.45 * highGatheringAbydos) + (0.86 * commonGatheringAbydos);
-            const materialCostLoggingAbydos = (0.33 * rareLoggingAbydos) + (0.45 * highLoggingAbydos) + (0.86 * commonLoggingAbydos);
-            const materialCostMiningAbydos = (0.33 * rareMiningAbydos) + (0.45 * highMiningAbydos) + (0.86 * commonMiningAbydos);
-
-            
+            const materialCostHuntAbydos = parseFloat(document.getElementById('rareHuntAbydos').value) * 0.33 +
+                                           parseFloat(document.getElementById('highHuntAbydos').value) * 0.45 +
+                                           parseFloat(document.getElementById('commonHuntAbydos').value) * 0.86;
             document.getElementById('materialCostHuntAbydos').innerText = ((materialCostHuntAbydos + productionCostAbydos)/10).toFixed(2);
-            document.getElementById('netProfitHuntAbydos').innerText = ((exchangePriceAbydos * 10* 0.95) - productionCostAbydos - materialCostHuntAbydos).toFixed(2);
 
+            const materialCostFishAbydos = parseFloat(document.getElementById('rareFishAbydos').value) * 0.33 +
+                                           parseFloat(document.getElementById('highFishAbydos').value) * 0.45 +
+                                           parseFloat(document.getElementById('commonFishAbydos').value) * 0.86;
             document.getElementById('materialCostFishAbydos').innerText = ((materialCostFishAbydos + productionCostAbydos)/10).toFixed(2);
-            document.getElementById('netProfitFishAbydos').innerText = ((exchangePriceAbydos * 10* 0.95) - productionCostAbydos - materialCostFishAbydos).toFixed(2);
 
+            const materialCostArchaeologyAbydos = parseFloat(document.getElementById('rareArchaeologyAbydos').value) * 0.33 +
+                                                  parseFloat(document.getElementById('highArchaeologyAbydos').value) * 0.45 +
+                                                  parseFloat(document.getElementById('commonArchaeologyAbydos').value) * 0.86;
             document.getElementById('materialCostArchaeologyAbydos').innerText = ((materialCostArchaeologyAbydos + productionCostAbydos)/10).toFixed(2);
-            document.getElementById('netProfitArchaeologyAbydos').innerText = ((exchangePriceAbydos * 10* 0.95) - productionCostAbydos - materialCostArchaeologyAbydos).toFixed(2);
-            
+
+            const materialCostGatheringAbydos = parseFloat(document.getElementById('rareGatheringAbydos').value) * 0.33 +
+                                                parseFloat(document.getElementById('highGatheringAbydos').value) * 0.45 +
+                                                parseFloat(document.getElementById('commonGatheringAbydos').value) * 0.86;
             document.getElementById('materialCostGatheringAbydos').innerText = ((materialCostGatheringAbydos + productionCostAbydos)/10).toFixed(2);
-            document.getElementById('netProfitGatheringAbydos').innerText = ((exchangePriceAbydos * 10* 0.95) - productionCostAbydos - materialCostGatheringAbydos).toFixed(2);
 
+            const materialCostLoggingAbydos = parseFloat(document.getElementById('rareLoggingAbydos').value) * 0.33 +
+                                              parseFloat(document.getElementById('highLoggingAbydos').value) * 0.45 +
+                                              parseFloat(document.getElementById('commonLoggingAbydos').value) * 0.86;
             document.getElementById('materialCostLoggingAbydos').innerText = ((materialCostLoggingAbydos + productionCostAbydos)/10).toFixed(2);
-            document.getElementById('netProfitLoggingAbydos').innerText = ((exchangePriceAbydos * 10* 0.95) - productionCostAbydos - materialCostLoggingAbydos).toFixed(2);
 
-            document.getElementById('materialCostMiningAbydos').innerText = ((materialCostMiningTop + productionCostAbydos)/10).toFixed(2);
-            document.getElementById('netProfitMiningAbydos').innerText = ((exchangePriceAbydos * 10* 0.95) - productionCostAbydos - materialCostMiningAbydos).toFixed(2);
+            const materialCostMiningAbydos = parseFloat(document.getElementById('rareMiningAbydos').value) * 0.33 +
+                                             parseFloat(document.getElementById('highMiningAbydos').value) * 0.45 +
+                                             parseFloat(document.getElementById('commonMiningAbydos').value) * 0.86;
+            document.getElementById('materialCostMiningAbydos').innerText = ((materialCostMiningAbydos + productionCostAbydos)/10).toFixed(2);
+
+            const netProfitHuntAbydos = (exchangePriceAbydos * 10 * 0.95) - (productionCostAbydos + materialCostHuntAbydos);
+            document.getElementById('netProfitHuntAbydos').innerText = netProfitHuntAbydos.toFixed(2);
+
+            const netProfitFishAbydos = (exchangePriceAbydos * 10 * 0.95) - (productionCostAbydos + materialCostFishAbydos);
+            document.getElementById('netProfitFishAbydos').innerText = netProfitFishAbydos.toFixed(2);
+
+            const netProfitArchaeologyAbydos = (exchangePriceAbydos * 10 * 0.95) - (productionCostAbydos + materialCostArchaeologyAbydos);
+            document.getElementById('netProfitArchaeologyAbydos').innerText = netProfitArchaeologyAbydos.toFixed(2);
+
+            const netProfitGatheringAbydos = (exchangePriceAbydos * 10 * 0.95) - (productionCostAbydos + materialCostGatheringAbydos);
+            document.getElementById('netProfitGatheringAbydos').innerText = netProfitGatheringAbydos.toFixed(2);
+
+            const netProfitLoggingAbydos = (exchangePriceAbydos * 10 * 0.95) - (productionCostAbydos + materialCostLoggingAbydos);
+            document.getElementById('netProfitLoggingAbydos').innerText = netProfitLoggingAbydos.toFixed(2);
+
+            const netProfitMiningAbydos = (exchangePriceAbydos * 10 * 0.95) - (productionCostAbydos + materialCostMiningAbydos);
+            document.getElementById('netProfitMiningAbydos').innerText = netProfitMiningAbydos.toFixed(2);
         }
 
-        function calculateProfit() {
-            const exchangePrice = parseFloat(document.getElementById('exchangePrice').value);
-            const productionCost = parseFloat(document.getElementById('productionCost').value);
-
-            const rareHunt = parseFloat(document.getElementById('rareHunt').value) || 0;
-            const highHunt = parseFloat(document.getElementById('highHunt').value) || 0;
-            const commonHunt = parseFloat(document.getElementById('commonHunt').value) || 0;
-
-            const rareFish = parseFloat(document.getElementById('rareFish').value) || 0;
-            const highFish = parseFloat(document.getElementById('highFish').value) || 0;
-            const commonFish = parseFloat(document.getElementById('commonFish').value) || 0;
-
-            const rareArchaeology = parseFloat(document.getElementById('rareArchaeology').value) || 0;
-            const highArchaeology = parseFloat(document.getElementById('highArchaeology').value) || 0;
-            const commonArchaeology = parseFloat(document.getElementById('commonArchaeology').value) || 0;
-
-            const materialCostHunt = (0.16 * rareHunt) + (0.64 * highHunt) + (1.28 * commonHunt);
-            const materialCostFish = (0.16 * rareFish) + (0.64 * highFish) + (1.28 * commonFish);
-            const materialCostArchaeology = (0.16 * rareArchaeology) + (0.29 * highArchaeology) + (0.94 * commonArchaeology);
-
-
-            document.getElementById('materialCostHunt').innerText = ((materialCostHunt + productionCost)/20).toFixed(2);
-            document.getElementById('netProfitHunt').innerText = ((exchangePrice * 20* 0.95) - productionCost - materialCostHunt).toFixed(2);
-
-            document.getElementById('materialCostFish').innerText = ((materialCostFish + productionCost)/20).toFixed(2);
-            document.getElementById('netProfitFish').innerText = ((exchangePrice * 20* 0.95) - productionCost - materialCostFish).toFixed(2);
-
-            document.getElementById('materialCostArchaeology').innerText = ((materialCostArchaeology + productionCost)/20).toFixed(2);
-            document.getElementById('netProfitArchaeology').innerText = ((exchangePrice * 20* 0.95) - productionCost - materialCostArchaeology).toFixed(2);
-        }
-
-        
+        document.addEventListener('DOMContentLoaded', () => {
+            loadValue('rareHuntTop');
+            loadValue('highHuntTop');
+            loadValue('commonHuntTop');
+            loadValue('rareFishTop');
+            loadValue('highFishTop');
+            loadValue('commonFishTop');
+            loadValue('rareArchaeologyTop');
+            loadValue('highArchaeologyTop');
+            loadValue('commonArchaeologyTop');
+            loadValue('exchangePriceTop');
+            loadValue('productionCostTop');
+            loadValue('rareHuntAbydos');
+            loadValue('highHuntAbydos');
+            loadValue('commonHuntAbydos');
+            loadValue('rareFishAbydos');
+            loadValue('highFishAbydos');
+            loadValue('commonFishAbydos');
+            loadValue('rareArchaeologyAbydos');
+            loadValue('highArchaeologyAbydos');
+            loadValue('commonArchaeologyAbydos');
+            loadValue('rareGatheringAbydos');
+            loadValue('highGatheringAbydos');
+            loadValue('commonGatheringAbydos');
+            loadValue('rareLoggingAbydos');
+            loadValue('highLoggingAbydos');
+            loadValue('commonLoggingAbydos');
+            loadValue('rareMiningAbydos');
+            loadValue('highMiningAbydos');
+            loadValue('commonMiningAbydos');
+            loadValue('exchangePriceAbydos');
+            loadValue('productionCostAbydos');
+            calculateProfitTop();
+            calculateProfitAbydos();
+        });
     </script>
 </body>
 </html>
+
