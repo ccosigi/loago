@@ -269,23 +269,23 @@
             const materialCostMiningAbydos = (0.33 * rareMiningAbydos) + (0.45 * highMiningAbydos) + (0.86 * commonMiningAbydos);
 
             
-            document.getElementById('materialCostHuntAbydos').innerText = ((materialCostHuntAbydos + productionCostAbydos)/15).toFixed(2);
-            document.getElementById('netProfitHuntAbydos').innerText = ((exchangePriceAbydos * 10) - productionCostAbydos - materialCostHuntAbydos).toFixed(2);
+            document.getElementById('materialCostHuntAbydos').innerText = ((materialCostHuntAbydos + productionCostAbydos)/10).toFixed(2);
+            document.getElementById('netProfitHuntAbydos').innerText = ((exchangePriceAbydos * 10* 0.95) - productionCostAbydos - materialCostHuntAbydos).toFixed(2);
 
-            document.getElementById('materialCostFishAbydos').innerText = ((materialCostFishAbydos + productionCostAbydos)/15).toFixed(2);
-            document.getElementById('netProfitFishAbydos').innerText = ((exchangePriceAbydos * 10) - productionCostAbydos - materialCostFishAbydos).toFixed(2);
+            document.getElementById('materialCostFishAbydos').innerText = ((materialCostFishAbydos + productionCostAbydos)/10).toFixed(2);
+            document.getElementById('netProfitFishAbydos').innerText = ((exchangePriceAbydos * 10* 0.95) - productionCostAbydos - materialCostFishAbydos).toFixed(2);
 
-            document.getElementById('materialCostArchaeologyAbydos').innerText = ((materialCostArchaeologyAbydos + productionCostAbydos)/15).toFixed(2);
-            document.getElementById('netProfitArchaeologyAbydos').innerText = ((exchangePriceAbydos * 10) - productionCostAbydos - materialCostArchaeologyAbydos).toFixed(2);
+            document.getElementById('materialCostArchaeologyAbydos').innerText = ((materialCostArchaeologyAbydos + productionCostAbydos)/10).toFixed(2);
+            document.getElementById('netProfitArchaeologyAbydos').innerText = ((exchangePriceAbydos * 10* 0.95) - productionCostAbydos - materialCostArchaeologyAbydos).toFixed(2);
             
-            document.getElementById('materialCostGatheringAbydos').innerText = ((materialCostGatheringAbydos + productionCostAbydos)/15).toFixed(2);
-            document.getElementById('netProfitGatheringAbydos').innerText = ((exchangePriceAbydos * 10) - productionCostAbydos - materialCostGatheringAbydos).toFixed(2);
+            document.getElementById('materialCostGatheringAbydos').innerText = ((materialCostGatheringAbydos + productionCostAbydos)/10).toFixed(2);
+            document.getElementById('netProfitGatheringAbydos').innerText = ((exchangePriceAbydos * 10* 0.95) - productionCostAbydos - materialCostGatheringAbydos).toFixed(2);
 
-            document.getElementById('materialCostLoggingAbydos').innerText = ((materialCostLoggingAbydos + productionCostAbydos)/15).toFixed(2);
-            document.getElementById('netProfitLoggingAbydos').innerText = ((exchangePriceAbydos * 10) - productionCostAbydos - materialCostLoggingAbydos).toFixed(2);
+            document.getElementById('materialCostLoggingAbydos').innerText = ((materialCostLoggingAbydos + productionCostAbydos)/10).toFixed(2);
+            document.getElementById('netProfitLoggingAbydos').innerText = ((exchangePriceAbydos * 10* 0.95) - productionCostAbydos - materialCostLoggingAbydos).toFixed(2);
 
-            document.getElementById('materialCostMiningAbydos').innerText = ((materialCostMiningTop + productionCostAbydos)/15).toFixed(2);
-            document.getElementById('netProfitMiningAbydos').innerText = ((exchangePriceAbydos * 10) - productionCostAbydos - materialCostMiningAbydos).toFixed(2);
+            document.getElementById('materialCostMiningAbydos').innerText = ((materialCostMiningTop + productionCostAbydos)/10).toFixed(2);
+            document.getElementById('netProfitMiningAbydos').innerText = ((exchangePriceAbydos * 10* 0.95) - productionCostAbydos - materialCostMiningAbydos).toFixed(2);
         }
 
         function calculateProfit() {
@@ -309,14 +309,14 @@
             const materialCostArchaeology = (0.16 * rareArchaeology) + (0.29 * highArchaeology) + (0.94 * commonArchaeology);
 
 
-            document.getElementById('materialCostHunt').innerText = ((materialCostHunt + productionCost)/15).toFixed(2);
-            document.getElementById('netProfitHunt').innerText = ((exchangePrice * 20) - productionCost - materialCostHunt).toFixed(2);
+            document.getElementById('materialCostHunt').innerText = ((materialCostHunt + productionCost)/20).toFixed(2);
+            document.getElementById('netProfitHunt').innerText = ((exchangePrice * 20* 0.95) - productionCost - materialCostHunt).toFixed(2);
 
-            document.getElementById('materialCostFish').innerText = ((materialCostFish + productionCost)/15).toFixed(2);
-            document.getElementById('netProfitFish').innerText = ((exchangePrice * 20) - productionCost - materialCostFish).toFixed(2);
+            document.getElementById('materialCostFish').innerText = ((materialCostFish + productionCost)/20).toFixed(2);
+            document.getElementById('netProfitFish').innerText = ((exchangePrice * 20* 0.95) - productionCost - materialCostFish).toFixed(2);
 
-            document.getElementById('materialCostArchaeology').innerText = ((materialCostArchaeology + productionCost)/15).toFixed(2);
-            document.getElementById('netProfitArchaeology').innerText = ((exchangePrice * 20) - productionCost - materialCostArchaeology).toFixed(2);
+            document.getElementById('materialCostArchaeology').innerText = ((materialCostArchaeology + productionCost)/20).toFixed(2);
+            document.getElementById('netProfitArchaeology').innerText = ((exchangePrice * 20* 0.95) - productionCost - materialCostArchaeology).toFixed(2);
         }
 
         
