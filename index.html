@@ -3,12 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profit Calculator</title>
+    <title>오레하 계산기</title>
+    <style>
+        table {
+            width: 60%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
 </head>
 <body>
     <h2>최상급 오레하</h2>
     <table>
         <thead>
+            <tr>
+                <th colspan="2">거래소 가격</th>
+                <th colspan="1"><input type="number" id="exchangePriceTop" value="0" oninput="saveValue('exchangePriceTop'); calculateProfitTop();"></label>
+                <th colspan="2">15개 제작비용</th>
+                <th colspan="1"><input type="number" id="productionCostTop" value="0" oninput="saveValue('productionCostTop'); calculateProfitTop();"></label>
+            </tr>
             <tr>
                 <th>재료</th>
                 <th>희귀</th>
@@ -18,6 +40,7 @@
                 <th>15개 판매 수익</th>
             </tr>
         </thead>
+           
         <tbody>
             <tr>
                 <td>수렵</td>
@@ -45,14 +68,14 @@
             </tr>
         </tbody>
     </table>
-    <div>
-        <label>거래소 가격 <input type="number" id="exchangePriceTop" value="0" oninput="saveValue('exchangePriceTop'); calculateProfitTop();"></label>
-        <label>제작비용: <input type="number" id="productionCostTop" value="0" oninput="saveValue('productionCostTop'); calculateProfitTop();"></label>
-    </div>
-
+    
     <h2>아비도스 융화재료</h2>
     <table>
         <thead>
+            <th colspan="2">거래소 가격</th>
+                <th colspan="1"><input type="number" id="exchangePriceAbydos" value="0" oninput="saveValue('exchangePriceAbydos'); calculateProfitAbydos();"></label>
+                <th colspan="2">15개 제작비용</th>
+                <th colspan="1"><input type="number" id="productionCostAbydos" value="0" oninput="saveValue('productionCostAbydos'); calculateProfitAbydos();"></label>
             <tr>
                 <th>재료</th>
                 <th>희귀</th>
@@ -113,10 +136,7 @@
             </tr>
         </tbody>
     </table>
-    <div>
-        <label>거래소 가격: <input type="number" id="exchangePriceAbydos" value="0" oninput="saveValue('exchangePriceAbydos'); calculateProfitAbydos();"></label>
-        <label>제작비용: <input type="number" id="productionCostAbydos" value="0" oninput="saveValue('productionCostAbydos'); calculateProfitAbydos();"></label>
-    </div>
+   
 
     <script>
         function saveValue(id) {
